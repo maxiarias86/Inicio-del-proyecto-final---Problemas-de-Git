@@ -107,3 +107,24 @@ def agregarAvatar(request):
     else:
         form=AvatarForm()
         return render(request, "AppUsuarios/agregarAvatar.html", {"form": form, "usuario": request.user, "avatar":obtenerAvatar(request)})
+
+@login_required
+def nuevoMensaje(request):
+    
+    if request.method =='POST':
+        form=MensajeForm(request.POST)
+        
+        if form.is_valid():
+            info=form.cleaned_data
+            mensaje=Mensaje()
+            
+            mensaje.titulo=info["titulo"]
+            mensaje.destinatario=info["destinatario"]
+            mensaje.contenido=info["contenido"]
+            mensaje.fecha=info['fecha']
+            mensaje.save()
+
+            return render(request,"AppUsuarios/inicioUsuario.html", {"mensaje":'Mensaje enviado con éxito'})
+    else:
+        form=MensajeForm()
+        return render(request, "AppUsuarios/mensajeNuevo.html", {"form": form})

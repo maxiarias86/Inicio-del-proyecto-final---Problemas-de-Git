@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import  UserCreationForm
 from django.contrib.auth.models import User
+import datetime
+from AppUsuarios.models import *
 
 class RegistroUsuarioForm(UserCreationForm):
     email=forms.EmailField(label="Email")
@@ -29,3 +31,10 @@ class UserEditForm(UserCreationForm):
 
 class AvatarForm(forms.Form):
     imagen=forms.ImageField(label='Imagen')
+
+class MensajeForm(forms.Form):
+    fecha=datetime.date.today()
+    destinatario=forms.ModelChoiceField(queryset=Usuario.objects.all())
+    titulo=forms.CharField(label='Asunto')
+    contenido=forms.CharField(label='Mensaje de menos de 1000 caracteres')
+    
