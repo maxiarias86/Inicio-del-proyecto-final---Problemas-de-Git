@@ -36,7 +36,7 @@ def login_request(request):
             else:
                 return render(request,'AppUsuarios/login.html', {'form':form, 'mensaje':"Usuario y/o Contraseña incorrectos"})
         else:
-            return render(request,'AppUsuarios/login.html', {'form':form, 'mensaje':"Usuario y/o Contraseña incorrectos"})
+            return render(request,'AppUsuarios/login.html', {'form':form, 'mensaje':"Error en el formulario"})
     
     form= AuthenticationForm()
 
