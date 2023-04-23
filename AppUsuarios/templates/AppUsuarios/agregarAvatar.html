@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Avatar</title>
+</head>
+<body>
+    <p> Agregar avatar a {{ usuario.username }} </p>
+    <form action="{% url 'agregarAvatar' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+
+        <table>
+        
+            {{ form.as_table }}
+        
+        </table>
+        
+        <input type="submit" value="Agregar Avatar">
+        
+        
+    </form>
+    
+</body>
+</html>
