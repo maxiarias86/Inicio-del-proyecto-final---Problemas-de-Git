@@ -72,7 +72,6 @@ def editarPerfil(request):
             usuario.password2=info["password2"]
             usuario.descripcion=info["descripcion"]
             usuario.webpage=info["webpage"]
-            usuario.avatar=info["avatar"]
             usuario.save()
             return render(request, "AppUsuarios/inicioUsuarios.html", {"mensaje":f"Usuario {usuario.username} editado correctamente"})
         else:

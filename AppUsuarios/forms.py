@@ -8,11 +8,10 @@ class RegistroUsuarioForm(UserCreationForm):
     password2=forms.CharField(label="Repetir contraseña", widget=forms.PasswordInput)
     descripcion=forms.CharField(label="Ingrese una breve descripción acerca de usted")
     webpage=forms.URLField(label='Dirección Web')
-    avatar=forms.ImageField(label='Avatar')
 
     class Meta:
         model=User
-        fields=["username", "email", "password1", "password2","descripcion","webpage","avatar"]
+        fields=["username", "email", "password1", "password2","descripcion","webpage"]
         help_texts = {k:"" for k in fields}
 
 class UserEditForm(UserCreationForm):
@@ -22,9 +21,8 @@ class UserEditForm(UserCreationForm):
     password2=forms.CharField(label="Repetir nueva contraseña", widget=forms.PasswordInput)
     descripcion=forms.CharField(label="Modificar su descripción")
     webpage=forms.URLField(label='Modificar Dirección Web')
-    avatar=forms.ImageField(label='Modificar Avatar')
     
     class Meta:
         model=User
-        fields=["email", "password1", "password2","descripcion","webpage","avatar"]
+        fields=["email", "password1", "password2","descripcion","webpage"]
         help_texts = {k:"" for k in fields}
